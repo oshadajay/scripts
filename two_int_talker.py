@@ -3,20 +3,35 @@ import random
 
 import rospy
 from std_msgs.msg import Int16
-from activity_1.msg import TwoInts
+# START CODE HERE #
+# Import the created msg file
+
+# END CODE HERE #
 
 def talker():
-    pub = rospy.Publisher('/two_ints', TwoInts, queue_size=10)
+    # START CODE HERE #
+    # Create a publisher for the topic '/two_ints'
+    pub = None
+    # END CODE HERE #
     rospy.init_node('two_int_talker_node', anonymous=True)
-    rate = rospy.Rate(0.5)  
+
+    # START CODE HERE #
+    # Define r to publish a message once in every 2 seconds  
+    r = None
+    # END CODE HERE #
+
+    rate = rospy.Rate(r)  
     random.seed()
 
     while not rospy.is_shutdown():
 
-        msg = TwoInts()
+        # START CODE HERE #
+        # Create a msg with the correct dtype
+        msg = None
+        # END CODE HERE #
   
-        msg.a = random.randint(1,20)
-        msg.b = random.randint(1,20)
+        msg.a = None # Generate a random number between 1 and 20
+        msg.b = None # Generate a random number between 1 and 20
         rospy.loginfo("{} and {} are published".format( msg.a,msg.b))
         pub.publish(msg)
         rate.sleep()
